@@ -1,0 +1,10 @@
+.page-link-link {}
+
+.link-container {
+  float: left;
+  display: inline;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.dot {}

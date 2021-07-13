@@ -16,7 +16,7 @@ import {
 const pages = [
   {
     id: 0,
-    link: "/home",
+    link: "/",
     text: "Home"
   },
   {

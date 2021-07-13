@@ -10,7 +10,7 @@ import {
 // markup
 const IndexPage = () => {
   return (
-    <Layout pageTitle="Index">
+    <Layout pageTitle="Home">
       <div className={aboutContainer}>
         <div className={bioTextContainer}>
           <p>bio bio bio</p>

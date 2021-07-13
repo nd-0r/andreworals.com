@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:regular,bold,extra-bold,italic');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:regular,bold,italic');
+
 :root {
   --header-bg-color: #019701;
   --content-bg-color: #ffffff;
@@ -12,6 +15,7 @@
 
 .container {
   margin: auto;
+  font-family: 'Open Sans';
 }
 
 .banner {
@@ -20,14 +24,18 @@
 }
 
 .site-title-style {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  font-size: 28pt;
   color: #ffffff;
+  text-decoration: none;
 }
 
 .header-container {
   height: 100%;
   width: 100%;
   display: table;
-  max-width: 700px;
+  max-width: 850px;
   margin: auto;
 }
 
@@ -40,6 +48,20 @@
   display: table-cell;
   vertical-align: middle;
   padding-top: 18px;
+}
+
+.github-head {
+  display: inline;
+  float: left;
+  width: 20px;
+  height: 20px;
+}
+
+.linkedin-head {
+  display: inline;
+  float: left;
+  width: 20px;
+  height: 20px;
 }
 
 .contentContainer {

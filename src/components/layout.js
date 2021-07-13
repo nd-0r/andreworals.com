@@ -10,7 +10,9 @@ import {
   headerLeft,
   headerRight,
   contentContainer,
-  footer
+  footer,
+  githubHead,
+  linkedinHead
 } from "../styles/layout.module.css"
 
 const pages = [
@@ -26,8 +28,8 @@ const pages = [
   },
   {
     id: 2,
-    link: "/blog",
-    text: "Weblog"
+    link: "/transcriptions",
+    text: "Transcriptions"
   },
 ]
 
@@ -39,6 +41,7 @@ const Layout = ({pageTitle, children}) => {
           title
           description
           siteUrl
+          myName
         }
       }
     }
@@ -50,9 +53,9 @@ const Layout = ({pageTitle, children}) => {
       <div className={banner}>
         <div className={headerContainer}>
           <div className={headerLeft}>
-            <h1 className={siteTitleStyle}>{data.site.siteMetadata.title}</h1>
-            <StaticImage className="github-head" src="" alt="GitHub"></StaticImage>
-            <StaticImage className="linkedin-head" src="" alt="Linkedin"></StaticImage>
+            <a className={siteTitleStyle} href='/'>{data.site.siteMetadata.myName}</a>
+            <StaticImage className={githubHead} src="../images/icon.png" alt="GitHub"></StaticImage>
+            <StaticImage className={linkedinHead} src="../images/icon.png" alt="Linkedin"></StaticImage>
           </div>
           <div className={headerRight}>
             <nav>
@@ -70,7 +73,9 @@ const Layout = ({pageTitle, children}) => {
         <p>
           {data.site.siteMetadata.title}
           <br></br>
-          © {new Date().getFullYear()} Andrew Orals, all rights reserved
+          <span style={{fontSize: 12}}>
+            © {new Date().getFullYear()} {data.site.siteMetadata.myName}, all rights reserved.
+          </span>
         </p>
       </div>
     </main>

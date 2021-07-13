@@ -1,10 +1,11 @@
 .page-link-link {}
 
 .link-container {
-  float: left;
+  float: right;
   display: inline;
   padding-left: 1rem;
   padding-right: 1rem;
+  text-align: center;
 }
 
 .dot {}

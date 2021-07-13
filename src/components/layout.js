@@ -9,7 +9,8 @@ import {
   headerContainer,
   headerLeft,
   headerRight,
-  contentContainer
+  contentContainer,
+  footer
 } from "../styles/layout.module.css"
 
 const pages = [
@@ -50,8 +51,8 @@ const Layout = ({pageTitle, children}) => {
         <div className={headerContainer}>
           <div className={headerLeft}>
             <h1 className={siteTitleStyle}>{data.site.siteMetadata.title}</h1>
-            <StaticImage className="github" src="" alt="GitHub"></StaticImage>
-            <StaticImage className="linkedin" src="" alt="Linkedin"></StaticImage>
+            <StaticImage className="github-head" src="" alt="GitHub"></StaticImage>
+            <StaticImage className="linkedin-head" src="" alt="Linkedin"></StaticImage>
           </div>
           <div className={headerRight}>
             <nav>
@@ -64,6 +65,13 @@ const Layout = ({pageTitle, children}) => {
       </div>
       <div className={contentContainer}>
         {children}
+      </div>
+      <div className={footer}>
+        <p>
+          {data.site.siteMetadata.title}
+          <br></br>
+          © {new Date().getFullYear()} Andrew Orals, all rights reserved
+        </p>
       </div>
     </main>
   )

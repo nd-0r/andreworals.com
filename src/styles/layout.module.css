@@ -1,3 +1,9 @@
+:root {
+  --header-bg-color: #019701;
+  --content-bg-color: #ffffff;
+  --footer-bg-color: #836539;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,36 +15,49 @@
 }
 
 .banner {
-  background-color: #019701;
-  height: 75px;
+  background-color: var(--header-bg-color);
+  height: 100px;
 }
 
 .site-title-style {
-  color: white;
+  color: #ffffff;
 }
 
 .header-container {
-  display: block;
-  height: 75px;
+  height: 100%;
+  width: 100%;
+  display: table;
   max-width: 700px;
   margin: auto;
 }
 
-.header-left {
-  float: left;
-  margin-left: 40px;
-  display: inline-start;
+.header-container > .header-left {
+  display: table-cell;
+  vertical-align: middle;
 }
 
-.header-right {
-  float: right;
-  margin-right: 40px;
-  padding-top: 25px;
-  display: inline-end;
+.header-container > .header-right {
+  display: table-cell;
+  vertical-align: middle;
+  padding-top: 18px;
 }
 
 .contentContainer {
+  padding-top: 40px;
   max-width: 700px;
   margin: auto;
   clear: both;
+}
+
+.footer {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  bottom: 0;
+  height: 5rem;
+  width: 100%;
+  background-color: var(--footer-bg-color);
+  text-align: center;
 }

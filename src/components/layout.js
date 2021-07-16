@@ -17,9 +17,9 @@ import {
 
 const pages = [
   {
-    id: 0,
-    link: "/",
-    text: "Home"
+    id: 2,
+    link: "/transcriptions",
+    text: "Transcriptions"
   },
   {
     id: 1,
@@ -27,10 +27,10 @@ const pages = [
     text: "Projects"
   },
   {
-    id: 2,
-    link: "/transcriptions",
-    text: "Transcriptions"
-  },
+    id: 0,
+    link: "/",
+    text: "Home"
+  }
 ]
 
 const Layout = ({pageTitle, children}) => {
@@ -54,13 +54,16 @@ const Layout = ({pageTitle, children}) => {
         <div className={headerContainer}>
           <div className={headerLeft}>
             <a className={siteTitleStyle} href='/'>{data.site.siteMetadata.myName}</a>
-            <StaticImage className={githubHead} src="../images/icon.png" alt="GitHub"></StaticImage>
-            <StaticImage className={linkedinHead} src="../images/icon.png" alt="Linkedin"></StaticImage>
+            <StaticImage className={githubHead} src="../images/icon.png" alt="GitHub">
+            </StaticImage>
+            <StaticImage className={linkedinHead} src="../images/icon.png" alt="Linkedin">
+            </StaticImage>
           </div>
           <div className={headerRight}>
             <nav>
               {pages.map(page => (
-                <PageLink link={page.link} text={page.text}></PageLink>
+                <PageLink link={page.link} text={page.text}>
+                </PageLink>
               ))}
             </nav>
           </div>

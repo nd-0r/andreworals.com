@@ -1,11 +1,21 @@
 .page-link-link {}
 
 .link-container {
-  float: right;
   display: inline;
+  float: right;
   padding-left: 1rem;
   padding-right: 1rem;
   text-align: center;
 }
 
-.dot {}
+.dot {
+  display: block;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+  height: 7px;
+  width: 7px;
+  background-color: white;
+  border-radius: 50%;
+}

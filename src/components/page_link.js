@@ -10,7 +10,7 @@ const PageLink = ({link, text}) => {
   return (
     <div className={linkContainer}>
       <Link className={pageLinkLink} to={link}>{text}</Link>
-      <p className={dot}>⋅</p>
+      <div className={dot}></div>
     </div>
   )
 }

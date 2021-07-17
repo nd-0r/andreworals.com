@@ -3,6 +3,7 @@
 .link-container {
   display: inline;
   float: right;
+  margin-top: -10px;
   padding-left: 1rem;
   padding-right: 1rem;
   text-align: center;
@@ -10,12 +11,12 @@
 
 .dot {
   display: block;
-  margin-top: 5px;
+  margin-top: 3px;
   margin-left: auto;
   margin-right: auto;
   padding: 0px;
-  height: 7px;
-  width: 7px;
+  height: 5px;
+  width: 5px;
   background-color: white;
   border-radius: 50%;
 }

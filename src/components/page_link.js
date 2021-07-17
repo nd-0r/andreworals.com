@@ -5,12 +5,15 @@ import {
   pageLinkLink,
   dot
 } from "../styles/page-link.module.css"
+import {
+  linkStyle
+} from "../styles/global.module.css"
 
-const PageLink = ({link, text}) => {
+const PageLink = ({link, text, pageTitle}) => {
   return (
     <div className={linkContainer}>
-      <Link className={pageLinkLink} to={link}>{text}</Link>
-      <div className={dot}></div>
+      <Link className={`${linkStyle} ${pageLinkLink}`} to={link}>{text}</Link>
+      {pageTitle === text ? <div className={dot}></div> : null}
     </div>
   )
 }

@@ -62,7 +62,7 @@ const Layout = ({pageTitle, children}) => {
           <div className={headerRight}>
             <nav>
               {pages.map(page => (
-                <PageLink link={page.link} text={page.text}>
+                <PageLink link={page.link} text={page.text} pageTitle={pageTitle}>
                 </PageLink>
               ))}
             </nav>

@@ -1,0 +1,37 @@
+.project-card-container {
+  height: 350px;
+  margin-bottom: 40px;
+  color: black;
+}
+
+.project-card {
+  height: 100%;
+  width: 350px;
+  margin: auto;
+  background-color: #f1f0f0;
+  border-radius: 30px;
+}
+
+.project-image {
+  display: block;
+  height: 40%;
+  width: 100%;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.project-card-text {
+  display: block;
+  height: 60%;
+  padding: 10px 10px 10px 10px;
+}
+
+.project-title {
+  text-decoration-line: none;
+  font-size: 18pt;
+  font-weight: bold;
+}
+
+.project-description {
+  padding-top: 6px;
+}

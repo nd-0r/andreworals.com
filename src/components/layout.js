@@ -2,6 +2,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 import PageLink from "./page_link"
 import { useStaticQuery, graphql } from 'gatsby'
+import "../styles/global.css"
 import {
   container,
   banner,
@@ -51,7 +52,7 @@ const Layout = ({pageTitle, children}) => {
     <main className={container}>
       <title>{pageTitle} | {data.site.siteMetadata.title}</title>
       <div className={banner}>
-        <div className={headerContainer}>
+        <header className={headerContainer}>
           <div className={headerLeft}>
             <a className={siteTitleStyle} href='/'>{data.site.siteMetadata.myName}</a>
             <StaticImage className={githubHead} src="../images/icon.png" alt="GitHub">
@@ -67,12 +68,12 @@ const Layout = ({pageTitle, children}) => {
               ))}
             </nav>
           </div>
-        </div>
+        </header>
       </div>
       <div className={contentContainer}>
         {children}
       </div>
-      <div className={footer}>
+      <footer className={footer}>
         <p>
           {data.site.siteMetadata.title}
           <br></br>
@@ -80,7 +81,7 @@ const Layout = ({pageTitle, children}) => {
             © {new Date().getFullYear()} {data.site.siteMetadata.myName}, all rights reserved.
           </span>
         </p>
-      </div>
+      </footer>
     </main>
   )
 }

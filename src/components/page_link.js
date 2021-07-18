@@ -7,7 +7,7 @@ import {
 } from "../styles/page-link.module.css"
 import {
   linkStyle
-} from "../styles/global.module.css"
+} from "../styles/content.module.css"
 
 const PageLink = ({link, text, pageTitle}) => {
   return (

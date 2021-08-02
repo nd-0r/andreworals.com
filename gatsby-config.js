@@ -9,12 +9,13 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-mdx",
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: "pages",
-        path: "./src/pages/",
+        path: `${__dirname}/src/pages/`,
       },
       __key: "pages",
     },
+    "gatsby-transformer-remark",
   ],
 };

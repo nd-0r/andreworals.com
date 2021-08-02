@@ -1,0 +1,38 @@
+.post-card-container {
+  height: 100px;
+  margin-bottom: 40px;
+  color: black;
+}
+
+.post-card {
+  height: 100%;
+  width: auto;
+  margin: auto;
+  background-color: #f1f0f0;
+  border-radius: 30px;
+}
+
+.post-image {
+  float: left;
+  height: 100%;
+  width: 40%;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.post-card-text {
+  float: left;
+  height: 60%;
+  padding-left: 30px;
+  padding-top: 15px;
+}
+
+.post-title {
+  text-decoration-line: none;
+  font-size: 18pt;
+  font-weight: bold;
+}
+
+.post-description {
+  padding-top: 6px;
+}

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import "../styles/global.css"
 import {
   projectCardContainer,
   projectCard,
@@ -10,7 +11,7 @@ import {
 
 const ProjectCard = ({title, image, link, description}) => {
   return (
-    <div className={projectCardContainer}>
+    <div className={`${projectCardContainer} zoom`}>
       <div className={projectCard}>
         <a href={link} target={"_blank"} rel={"noreferrer"}>
           <img className={projectImage} src={image} alt={title}/>

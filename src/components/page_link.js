@@ -2,17 +2,15 @@ import * as React from "react"
 import { Link } from "gatsby"
 import {
   linkContainer,
-  pageLinkLink,
+  pageLinkLinkInactive,
+  pageLinkLinkActive,
   dot
 } from "../styles/page-link.module.css"
-import {
-  linkStyle
-} from "../styles/content.module.css"
 
 const PageLink = ({link, text, pageTitle}) => {
   return (
     <div className={linkContainer}>
-      <Link className={`${linkStyle} ${pageLinkLink}`} to={link}>{text}</Link>
+      <Link className={(pageTitle === text ? pageLinkLinkActive : pageLinkLinkInactive)} to={link}>{text}</Link>
       {pageTitle === text ? <div className={dot}></div> : null}
     </div>
   )

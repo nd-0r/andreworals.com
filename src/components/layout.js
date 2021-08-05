@@ -15,6 +15,7 @@ import {
   githubHead,
   linkedinHead
 } from "../styles/layout.module.css"
+import "../styles/content.css"
 
 const pages = [
   {
@@ -55,10 +56,12 @@ const Layout = ({pageTitle, children}) => {
         <header className={headerContainer}>
           <div className={headerLeft}>
             <a className={siteTitleStyle} href='/'>{data.site.siteMetadata.myName}</a>
-            <StaticImage className={githubHead} src="../images/icon.png" alt="GitHub">
-            </StaticImage>
-            <StaticImage className={linkedinHead} src="../images/icon.png" alt="Linkedin">
-            </StaticImage>
+            <a href='https://github.com/nd-0r' target='_blank'>
+              <StaticImage className={`${githubHead} zoom`} src="../images/GitHub-Mark-Light-120px-plus.png" alt="GitHub"/>
+            </a>
+            <a href='https://www.linkedin.com/in/andrew-orals-06aa451b7/' target='_blank'>
+              <StaticImage className={`${linkedinHead} zoom`} src="../images/LI-In-Bug-Light.png" alt="Linkedin"/>
+            </a>
           </div>
           <div className={headerRight}>
             <nav>
@@ -69,7 +72,7 @@ const Layout = ({pageTitle, children}) => {
           </div>
         </header>
       </div>
-      <div className={contentContainer}>
+      <div className={`${contentContainer} content`}>
         {children}
       </div>
       <footer className={footer}>

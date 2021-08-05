@@ -2,9 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:regular,bold,italic');
 
 :root {
-  --header-bg-color: #019701;
+  --accent-color: #019701;
+  --accent-color-dark: #017e01;
   --content-bg-color: #ffffff;
-  --footer-bg-color: #836539;
+  --content-bg-color-alt: #f1f1f1;
+  --footer-bg-color: #c7b08e;
 }
 
 .container {
@@ -18,9 +20,10 @@
 }
 
 .banner {
-  min-height: 90px;
-  max-height: 14%;
-  background-color: var(--header-bg-color);
+  min-height: 120px;
+  max-height: 20%;
+  /* background-color: var(--accent-color); */
+  background-image: url("../images/penrose.png");
 }
 
 .site-title-style {
@@ -64,8 +67,9 @@
   display: inline-block;
   margin-left: 10px;
   margin-right: 10px;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 51px;
+  scale: 90%;
 }
 
 .content-container {
@@ -75,7 +79,7 @@
   max-width: 800px;
   padding: 5px;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 30px;
   margin-bottom: 40px;
   border-radius: 1%;
   /* background-color: #f1f0f0; */
@@ -87,7 +91,7 @@
   align-items: center;
   left: 0;
   bottom: 0;
-  min-height: 70px;
+  min-height: 80px;
   height: 10%;
   width: 100%;
   background-color: var(--footer-bg-color);

@@ -1,7 +1,30 @@
+.nav-header {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  text-align: center;
+  z-index: 99999;
+  background-color: #f1f0f0;
+  border-radius: 30px;
+  /* border-bottom: 1px solid #000000; */
+}
+
+.back-button {
+  padding-top: 10px;
+  display: block;
+}
+
+.post-title {
+  border: none !important;
+  margin-bottom: 0 !important;
+}
+
 .blog-post {
-  color: red;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
 }
 
 .blog-post-content {
-  color: blue;
+
 }

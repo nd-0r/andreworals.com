@@ -1,4 +1,14 @@
-.page-link-link {}
+.page-link-link-inactive {
+  color: #d3d3d3;
+  font-weight: bold;
+  text-decoration-line: none;
+}
+
+.page-link-link-active {
+  color: white;
+  font-weight: bold;
+  text-decoration-line: none;
+}
 
 .link-container {
   display: inline;

@@ -1,0 +1,124 @@
+@import url('../styles/layout.module.css');
+
+.content h1,
+.content h2,
+.content h3 {
+  border-bottom: 2px solid #d4d4d4;
+  margin-bottom: 1.15rem;
+  padding-bottom: .5rem;
+}
+
+.content p {
+  color: black;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* links */
+
+.content a,
+.content a:visited {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.content a:hover,
+.content a:focus,
+.content a:active {
+  color: var(--accent-color-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 12%;
+}
+
+/* code and blockquotes */
+
+.content pre {
+  border-radius: 20px;
+}
+
+.content pre {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-left: 20px;
+  padding-bottom: 1rem;
+}
+
+.content blockquote {
+  border: none;
+  border-left: 8px solid var(--content-bg-color-alt);
+  padding: 1px;
+  padding-left: 2rem;
+}
+
+.content pre,
+.content code {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  background-color: var(--content-bg-color-alt);
+}
+
+/* embedded content */
+
+.content img {
+  page-break-inside: avoid;
+}
+
+.content .gatsby-resp-image-wrapper {
+  margin: 2rem;
+}
+
+.content img,
+.content canvas,
+.content iframe,
+.content video,
+.content svg,
+.content select,
+.content textarea {
+  max-width: 100%;
+}
+
+/* lists */
+
+.content ol,
+.content ul {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+}
+
+.content li {
+  margin: 5px;
+}
+
+/* tables */
+
+.content table {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  max-width: 95%;
+}
+
+.content table,
+.content th,
+.content td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.content thead {
+  background-color: var(--accent-color-dark);
+}
+
+.content th,
+.content td {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.content tr:nth-child(even) {
+  background-color: var(--content-bg-color-alt);
+}

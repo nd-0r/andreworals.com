@@ -4,6 +4,7 @@ import "../styles/global.css"
 import {
   postCardContainer,
   postCard,
+  background,
   postImage,
   postCardText,
   postTitle,
@@ -12,13 +13,15 @@ import {
 
 const PostCard = ({title, key, image, link, description}) => {
   return (
-    <div className={postCardContainer} key={key}>
+    <div className={`${postCardContainer} zoom`} key={key}>
       <Link to={link}>
-        <div className={`${postCard} zoom`}>
-          <img className={postImage} src={image} alt={title}/>
-          <div className={postCardText}>
-            <h2 className={postTitle}>{title}</h2>
-            <p className={postDescription}>{description}</p>
+        <div className={postCard}>
+          <div className={background}>
+            <img className={postImage} src={image} alt={image}/>
+            <div className={postCardText}>
+              <h2 className={postTitle}>{title}</h2>
+              <p className={postDescription}>{description}</p>
+            </div>
           </div>
         </div>
       </Link>

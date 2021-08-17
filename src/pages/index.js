@@ -18,7 +18,7 @@ const IndexPage = ({data}) => {
         <div className={bioTextContainer}>
           <p>
             Hi there! Welcome to my corner of the internet. I'm a software developer
-            majoring in Computer Science and Music major at the University of Illinois 
+            majoring in Computer Science and Music at the University of Illinois 
             at Urbana/Champaign 🌽.
             <br/>
             <br/>
@@ -29,7 +29,7 @@ const IndexPage = ({data}) => {
             <br/>
             <br/>
             When I'm not making things with code, playing an instrument, or listening to
-            music, I enjoy spending time outside hiking (pictured), biking, or swimming.
+            music, I enjoy spending time outside hiking, biking, or swimming.
             <br/>
             <br/>
             Thanks for stopping by!
@@ -45,7 +45,7 @@ const IndexPage = ({data}) => {
 
 export const imgQuery = graphql`
   query getImage {
-    file(extension: {eq: "jpg"}, name: {eq: "forrest"}) {
+    file(extension: {eq: "jpg"}, name: {eq: "city"}) {
       childImageSharp {
         gatsbyImageData(placeholder: BLURRED, width: 300, height: 400, formats: WEBP)
       }

@@ -1,52 +1,47 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
+import "../styles/404.css"
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-
-// markup
 const NotFoundPage = () => {
+  React.useEffect(() => {
+    const script = document.createElement('script');
+  
+    script.src = "/toh.js";
+    script.async = true;
+  
+    document.head.appendChild(script);
+  
+    return () => {
+      document.head.removeChild(script);
+    }
+  }, []);
+
   return (
     <Layout pageTitle="Not Found">
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
+      <h1>Page not found!</h1>
+      <p>Would you like to play a game?</p>
+      <div dangerouslySetInnerHTML={{__html: `
+        <div class="container">
+          <canvas id="toh"></canvas>
+          <button id="start-btn" onclick="init();">Start</button>
+          <div class="btn-container">
+            <button class="btn" onclick="incrementNumDisks();">
+              <div id="up-arrow" class="arrow"></div>
+            </button>
+            <button class="btn" onclick="decrementNumDisks();">
+              <div id="down-arrow" class="arrow"></div>
+            </button>
+            <button class="btn" onclick="solve();">
+              Solve!
+            </button>
+            <button class="btn" onclick="reset(); draw();">
+              Reset
+            </button>
+          </div>
+        </div>
+      `}}></div>
+      <p style={{textAlign: 'center'}}>Go <Link to='/'>home</Link></p>
     </Layout>
   )
 }

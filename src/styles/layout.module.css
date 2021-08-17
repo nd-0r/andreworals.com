@@ -6,7 +6,7 @@
   --accent-color-dark: #017e01;
   --content-bg-color: #ffffff;
   --content-bg-color-alt: #f1f1f1;
-  --footer-bg-color: #c7b08e;
+  --footer-bg-color: #d3cdb9;
 }
 
 .container {
@@ -20,7 +20,7 @@
 }
 
 .banner {
-  min-height: 120px;
+  min-height: 120px; /* 150px */
   max-height: 20%;
   /* background-color: var(--accent-color); */
   background-image: url("../images/penrose.png");

@@ -1,0 +1,64 @@
+.container {
+  position: relative;
+}
+
+#toh {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #000000;
+}
+
+#start-btn {
+  position: absolute;
+  font-size: xxx-large;
+  background-color: lightgreen;
+  height: auto;
+  width: auto;
+  top: 44%;
+  left: 44%;
+}
+
+.btn-container {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 70px;
+  height: 120px;
+}
+
+.btn {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 50%;
+  visibility: hidden;
+}
+
+.arrow {
+  position: absolute;
+  border: solid black;
+  width: 50%;
+  border-width: 0 3px 3px 0;
+  padding: 3px;
+}
+
+.arrow:before {
+  content: "";
+  float: left;
+  padding-top: 100%;
+}
+
+#up-arrow {
+  top: 40%;
+  left: 18%;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+#down-arrow {
+  bottom: 40%;
+  left: 18%;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}

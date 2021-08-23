@@ -1,8 +1,6 @@
 node_modules/
 .cache/
 public
-posts
-images
 __pycache__
 __init__.py
 

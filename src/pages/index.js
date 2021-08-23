@@ -18,18 +18,13 @@ const IndexPage = ({data}) => {
         <div className={bioTextContainer}>
           <p>
             Hi there! Welcome to my corner of the internet. I'm a software developer
-            majoring in Computer Science and Music at the University of Illinois 
-            at Urbana/Champaign 🌽.
+            from the Chicagoland area majoring in Computer Science and Music 
+            at the University of Illinois Urbana/Champaign 🌽.
             <br/>
             <br/>
             When I'm not making <Link to='/projects'>things with code</Link>, 
-            I like to play violin, which I've played for about 14 years, or jazz piano.
-            I'm also into transcribing and sometimes writing about music that I like, 
-            so feel free to check out one of my transcriptions while you're here!
-            <br/>
-            <br/>
-            When I'm not making things with code, playing an instrument, or listening to
-            music, I enjoy spending time outside hiking, biking, or swimming.
+            I like to play violin, which I've played for about 14 years, or jazz piano. 
+            I also enjoy spending time outside biking or swimming in my free time.
             <br/>
             <br/>
             Thanks for stopping by!

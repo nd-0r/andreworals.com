@@ -20,8 +20,8 @@ import "../styles/content.css"
 const pages = [
   {
     id: 2,
-    link: "/transcriptions",
-    text: "Transcriptions"
+    link: "/blog",
+    text: "Blog"
   },
   {
     id: 1,

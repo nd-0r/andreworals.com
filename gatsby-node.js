@@ -6,7 +6,6 @@ exports.createPages = async ({ actions, graphql }) => {
   const result = await graphql(`
     {
       allMarkdownRemark(
-        sort: {order: DESC, fields: frontmatter___date}
         limit: 2000
         filter: {frontmatter: {draft: {eq: false}}}
       ) {

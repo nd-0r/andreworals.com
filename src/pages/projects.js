@@ -18,20 +18,33 @@ const projects = [
     draft: false
   },
   {
+    title: "Musical Emergence",
+    description: `A midi processing plugin that I created to learn
+                  more about the JUCE plugin framework and the sweep
+                  and prune algorithm. Use it to create mesmerizing 
+                  soundscapes and have some fun with particle physics!`,
+    image: "synchrony.png",
+    link: "https://github.com/nd-0r/MusicalEmergence",
+    draft: false
+  },
+  {
     title: "This",
-    description: `So meta, right? This is my website built with ReactJS and 
-                  styled with CSS using the static site generator Gatsby, 
-                  hosted on Netlify.`,
+    description: `At the risk of being too meta, This is my website 
+                  built with ReactJS and styled with CSS using the 
+                  static site generator Gatsby, hosted on Netlify.`,
     image: "penrose.png",
     link: "https://github.com/nd-0r/andreworals.com",
     draft: false
   },
   {
-    title: "Foobar",
-    description: "look at my foobar!",
-    image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd.newsweek.com%2Fen%2Ffull%2F1680706%2Fnational-cookie-day.jpg",
-    link: "https://github.com/nd-0r",
-    draft: true
+    title: "Towers of Hanoi",
+    description: `A small game I wrote in pure JS, HTML5, and CSS to illustrate
+                  the iconic Towers of Hanoi puzzle. Let me know if 
+                  you can move all the disks to the final peg in less
+                  than 2^n moves :)`,
+    image: "toh.png",
+    link: "https://github.com/nd-0r/TowersOfHanoi",
+    draft: false
   }
 ]
 

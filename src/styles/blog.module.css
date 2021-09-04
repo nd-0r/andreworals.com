@@ -28,3 +28,25 @@
 .blog-post-content {
 
 }
+
+.posts-container {
+  max-width: inherit;
+}
+
+.posts-wide {
+  display: inline-block;
+}
+
+.posts-tall {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .posts-wide {
+    display: none;
+  }
+  
+  .posts-tall {
+    display: block;
+  }
+}

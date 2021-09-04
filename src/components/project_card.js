@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'gatsby'
 import "../styles/global.css"
 import {
   projectCardContainer,
@@ -9,15 +10,27 @@ import {
   projectDescription
 } from '../styles/project-card.module.css'
 
-const ProjectCard = ({title, image, link, description}) => {
+const ProjectCard = ({title, image, link, description, external}) => {
   return (
     <div className={`${projectCardContainer} zoom`}>
       <div className={projectCard}>
-        <a href={link} target={"_blank"} rel={"noreferrer"}>
-          <img className={projectImage} src={image} alt={title}/>
-        </a>
+        {
+          external ? 
+          <a href={link} target={"_blank"} rel={"noreferrer"}>
+            <img className={projectImage} src={image} alt={title}/>
+          </a>
+          :
+          <Link to={link}>
+            <img className={projectImage} src={image} alt={title}/>
+          </Link>
+        }
         <div className={projectCardText}>
-          <a className={projectTitle} href={link} target={"_blank"} rel={"noreferrer"}>{title}</a>
+          {
+            external ? 
+            <a className={projectTitle} href={link} target={"_blank"} rel={"noreferrer"}>{title}</a>
+            :
+            <Link className={projectTitle} to={link}>{title}</Link>
+          }
           <p className={projectDescription}>{description}</p>
         </div>
       </div>

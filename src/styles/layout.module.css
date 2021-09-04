@@ -79,7 +79,7 @@
 
 @media screen and (max-width: 700px) {
   .github-head {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -94,9 +94,26 @@
 
 @media screen and (max-width: 700px) {
   .linkedin-head {
-    display: none;
+    display: none !important;
   }
 }
+
+.nav-links {
+  display: inline-block !important;
+}
+.nav-drawer {
+  display: none !important;
+}
+
+@media screen and (max-width: 700px) {
+  .nav-links {
+    display: none !important;
+  }
+  .nav-drawer {
+    display: inline-block !important;
+  }
+}
+
 
 .content-container {
   flex: 1;
@@ -104,7 +121,7 @@
   margin: auto;
   max-width: 800px;
   padding: 5px;
-  width: 100%;
+  width: 96%;
   margin-top: 30px;
   margin-bottom: 40px;
   border-radius: 1%;

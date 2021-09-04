@@ -3,11 +3,14 @@ import { graphql } from "gatsby"
 import Layout from '../components/layout'
 import PostCard from '../components/blog_post_card'
 import ProjectCard  from '../components/project_card'
-import useWindowWidth from '../components/use_window_width'
+import {
+  postsWide,
+  postsTall,
+  postsContainer
+} from '../styles/blog.module.css'
 
 const Blog = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
-  var width = useWindowWidth();
 
   return (
     <Layout pageTitle="Blog">
@@ -15,16 +18,22 @@ const Blog = ({ data }) => {
         .filter(post => post.node.frontmatter.title.length > 0)
         .map(({ node: post }) => {
           return (
-            width > 800 ?
-            <PostCard title={post.frontmatter.title} 
-                      key={post.id} 
-                      image={post.frontmatter.thumbnail} 
-                      link={post.frontmatter.path} 
-                      description={post.excerpt}/> :
-            <ProjectCard title={post.frontmatter.title} 
-                         image={post.frontmatter.thumbnail}
-                         link={post.frontmatter.path}
-                         description={post.excerpt}/>
+            <div className={postsContainer}>
+              <div className={postsWide}>
+                <PostCard title={post.frontmatter.title} 
+                          key={post.id} 
+                          image={post.frontmatter.thumbnail} 
+                          link={post.frontmatter.path} 
+                          description={post.excerpt}/>
+              </div>
+              <div className={postsTall}>
+                <ProjectCard title={post.frontmatter.title} 
+                             image={post.frontmatter.thumbnail}
+                             link={post.frontmatter.path}
+                             description={post.excerpt}
+                             external={false}/>
+              </div>
+            </div>
           )
       })}
     </Layout>

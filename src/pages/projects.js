@@ -53,7 +53,7 @@ const Projects = () => {
     <Layout pageTitle="Projects">
     <div className={projectContainer}>
       {projects.map(project => (
-        !project.draft ? <ProjectCard {...project}/> : null
+        project.draft ? null : <ProjectCard {...project} external={true}/>
       ))}
     </div>
     <p style={{textAlign: 'center', fontWeight: 'bold'}}>

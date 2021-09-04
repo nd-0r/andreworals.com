@@ -3,7 +3,6 @@ import * as React from "react"
 import PageLink from "./page_link"
 import NavDrawer from "./nav_drawer"
 import { useStaticQuery, graphql } from 'gatsby'
-import useWindowWidth from "./use_window_width"
 import "../styles/global.css"
 import {
   container,
@@ -15,7 +14,9 @@ import {
   contentContainer,
   footer,
   githubHead,
-  linkedinHead
+  linkedinHead,
+  navLinks,
+  navDrawer
 } from "../styles/layout.module.css"
 import "../styles/content.css"
 
@@ -38,8 +39,6 @@ const pages = [
 ]
 
 const Layout = ({pageTitle, children}) => {
-  var width = useWindowWidth();
-
   const data = useStaticQuery(graphql`
     query MyQuery {
       site {
@@ -69,13 +68,12 @@ const Layout = ({pageTitle, children}) => {
           </div>
           <div className={headerRight}>
             <nav>
-              {
-                width > 700 ? pages.map(page => (
-                    <PageLink link={page.link} text={page.text} pageTitle={pageTitle}/>
-                  ))
-                  :
-                  <NavDrawer pages={pages} pageTitle={pageTitle}/>
-              }
+              <div className={navLinks}>
+                {pages.map(page => (<PageLink link={page.link} text={page.text} pageTitle={pageTitle}/>))}
+              </div>
+              <div className={navDrawer}>
+                <NavDrawer pages={pages} pageTitle={pageTitle}/>
+              </div>
             </nav>
           </div>
         </header>

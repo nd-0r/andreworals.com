@@ -2,3 +2,11 @@
   display: grid;
   grid-template-columns: repeat(2, 50%);
 }
+
+@media screen and (max-width: 800px) {
+  .project-container {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline;
+  }
+}

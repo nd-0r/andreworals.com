@@ -1,7 +1,9 @@
 import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 import PageLink from "./page_link"
+import NavDrawer from "./nav_drawer"
 import { useStaticQuery, graphql } from 'gatsby'
+import useWindowWidth from "./use_window_width"
 import "../styles/global.css"
 import {
   container,
@@ -36,6 +38,8 @@ const pages = [
 ]
 
 const Layout = ({pageTitle, children}) => {
+  var width = useWindowWidth();
+
   const data = useStaticQuery(graphql`
     query MyQuery {
       site {
@@ -65,9 +69,13 @@ const Layout = ({pageTitle, children}) => {
           </div>
           <div className={headerRight}>
             <nav>
-              {pages.map(page => (
-                <PageLink link={page.link} text={page.text} pageTitle={pageTitle}/>
-              ))}
+              {
+                width > 700 ? pages.map(page => (
+                    <PageLink link={page.link} text={page.text} pageTitle={pageTitle}/>
+                  ))
+                  :
+                  <NavDrawer pages={pages} pageTitle={pageTitle}/>
+              }
             </nav>
           </div>
         </header>

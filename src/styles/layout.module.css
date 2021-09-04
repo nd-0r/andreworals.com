@@ -33,7 +33,13 @@
   color: #ffffff;
   text-decoration: none;
   margin-right: 20px;
-  margin-left: 10px;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 700px) {
+  .site-title-style {
+    margin-left: 30px;
+  }
 }
 
 .header-container {
@@ -46,6 +52,12 @@
   margin-right: auto;
 }
 
+@media screen and (max-width: 700px) {
+  .header-container {
+    max-width: 420px;
+  }
+}
+
 .header-container > .header-left {
   display: table-cell;
   vertical-align: middle;
@@ -55,12 +67,6 @@
   display: table-cell;
   vertical-align: middle;
   padding-right: 10px;
-}
-
-@media screen and (max-width: 700px) {
-  .header-container > .header-right {
-    display: none;
-  }
 }
 
 .github-head {

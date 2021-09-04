@@ -29,7 +29,7 @@ const projects = [
   },
   {
     title: "This",
-    description: `At the risk of being too meta, This is my website 
+    description: `This is my website 
                   built with ReactJS and styled with CSS using the 
                   static site generator Gatsby, hosted on Netlify.`,
     image: "penrose.png",

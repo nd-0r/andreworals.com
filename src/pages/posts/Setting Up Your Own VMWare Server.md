@@ -7,7 +7,7 @@ draft: false
 blog: true
 ---
 
-Awhile ago, I happened to stumble across a contest on r/homelabs on Reddit, where people interested in learning more about "homelabs" could win an item from an assortment of retired (but not that old) network gear.  I couldn't help but enter, and I ended up getting a Dell R715 for free, **with free shipping!**  Honestly, you can almost always find enterprise machines to learn from very cheap on the internet, because they generally use a lot of power (the R715 idles at about 220w, and it's overkill even by the most generous definition), so they're not super appealing for home use.
+A while ago, I happened to stumble across a contest on r/homelabs on Reddit, where people interested in learning more about "homelabs" could win an item from an assortment of retired (but not that old) network gear.  I couldn't help but enter, and I ended up getting a Dell R715 for free, **with free shipping!**  Honestly, you can almost always find enterprise machines to learn from very cheap on the internet, because they generally use a lot of power (the R715 idles at about 220w, and it's overkill even by the most generous definition), so they're not super appealing for home use.
 
 After a lot of experimentation and learning, I installed VMWare ESXi on a small internal USB flash drive.  Here are the 5 main virtual machines:
 

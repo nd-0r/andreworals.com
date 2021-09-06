@@ -48,7 +48,9 @@ Generally, in MacOS, the control key isn't used very much as far as system keybo
 ![Keyboard shortcuts spark](../../images/Spark.png)
 Since I frequently use a windows mechanical keyboard with my Mac, I really wanted to use the delete key to trash files instead of command+backspace every time.  Maybe you have this issue, too.  I executed this command in terminal:
 
-    defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Move to Trash' '\177'
+```bash
+defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Move to Trash' '\177'
+```
 
 I guess this isn't *technically* a keyboard shortcut, but you might find it useful to add some custom actions to the touch bar if you're on a macbook pro with one. 
  
@@ -56,24 +58,28 @@ I guess this isn't *technically* a keyboard shortcut, but you might find it usef
 
 I added actions to toggle Wifi and Bluetooth so I don't have to click in the menu bar.  You can do this by writing a shell script inside an Automator Quick Action.  Here's the shell script I wrote for Wifi:
 
-    POWER=$(networksetup -getairportpower en0 | sed "s/Wi-Fi\ Power (en0):\ //")
-    if [[ $POWER == 'On' ]]
-    then
-	    networksetup -setairportpower en0 off
-    else
-	    networksetup -setairportpower en0 on
-    fi
+```bash
+POWER=$(networksetup -getairportpower en0 | sed "s/Wi-Fi\ Power (en0):\ //")
+if [[ $POWER == 'On' ]]
+then
+  networksetup -setairportpower en0 off
+else
+  networksetup -setairportpower en0 on
+fi
+```
     
 And Bluetooth (uses [blueutil](https://www.frederikseiffert.de/blueutil/)):
 
-    POWER=$(/usr/local/bin/blueutil -p)
+```bash
+POWER=$(/usr/local/bin/blueutil -p)
 
-    if [[ POWER -eq 1 ]]
-    then
-	    /usr/local/bin/blueutil -p 0
-    else
-	    /usr/local/bin/blueutil -p 1
-    fi
+if [[ POWER -eq 1 ]]
+then
+  /usr/local/bin/blueutil -p 0
+else
+  /usr/local/bin/blueutil -p 1
+fi
+```
 
 ## Finder
 

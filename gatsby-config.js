@@ -36,7 +36,8 @@ module.exports = {
               loading: "lazy"
             }
           },
-          `gatsby-remark-prismjs`
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-emoji`
         ]
       }
     },

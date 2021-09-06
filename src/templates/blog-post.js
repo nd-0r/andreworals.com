@@ -5,30 +5,67 @@ import {
   navHeader,
   backButton,
   postTitle,
+  postTitleSmall,
+  postTitleBigAgain,
   blogPost, 
   blogPostContent 
 } from "../styles/blog.module.css"
+class BlogPost extends React.Component {
+  state = {scroll_amount: 0,
+           scrolled: false};
 
+  listenToScroll = () => {
+    const winScroll = document.body.scrollTop || 
+                      document.documentElement.scrollTop;
 
-const BlogPost = ({data}) => {
-  const {markdownRemark: post} = data
-  
-  return (
-    <Layout pageTitle={post.frontmatter.title}>
-      <div className={navHeader}>
-        <div className={backButton}>
-          <Link to='/blog'>Back to the Blog</Link>
+    const height = document.documentElement.scrollHeight -
+                  document.documentElement.clientHeight;
+
+    const scrolled = winScroll / height
+
+    if (scrolled > 0.078) {
+      this.setState({scrolled: true});
+    }
+
+    this.setState({scroll_amount: scrolled});
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.listenToScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.listenToScroll);
+  }
+
+  render() {
+    const {markdownRemark: post} = this.props.data
+    return (
+      <Layout pageTitle={post.frontmatter.title}>
+        <div className={navHeader}>
+          <div className={backButton}>
+            <Link to='/blog'>Back to the Blog</Link>
+          </div>
+          {
+            this.state.scroll_amount > 0.078 ? 
+              <h1 className={postTitleSmall}>{post.frontmatter.title}</h1> : null
+          }
+          {
+            this.state.scrolled && this.state.scroll_amount <= 0.078 ? <h1 className={`${postTitle} ${postTitleBigAgain}`}>{post.frontmatter.title}</h1> : null
+          }
+          {
+            !this.state.scrolled && this.state.scroll_amount <= 0.078 ? <h1 className={postTitle}>{post.frontmatter.title}</h1> : null
+          }
+          </div>
+        <div className={blogPost}>
+          <div
+            className={blogPostContent}
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
         </div>
-        <h1 className={postTitle}>{post.frontmatter.title}</h1>
-      </div>
-      <div className={blogPost}>
-        <div
-          className={blogPostContent}
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-      </div>
-    </Layout>
-  )
+      </Layout>
+    )
+  }
 }
 
 export const pageQuery = graphql`

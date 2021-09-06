@@ -1,3 +1,13 @@
+@keyframes shrinktext {
+  from {font-size: 2em;}
+  to {font-size: 0em;}
+}
+
+@keyframes expandtext {
+  from {font-size: 0em;}
+  to {font-size: 2em;}
+}
+
 .nav-header {
   position: sticky;
   top: 0;
@@ -6,6 +16,7 @@
   z-index: 99999;
   background-color: #f1f0f0;
   border-radius: 30px;
+  margin-bottom: 2rem;
   /* border-bottom: 1px solid #000000; */
 }
 
@@ -19,14 +30,31 @@
   margin-bottom: 0 !important;
 }
 
+.post-title-big-again {
+  animation-name: expandtext;
+  animation-duration: 0.5s;
+}
+
+.post-title-small {
+  animation-name: shrinktext;
+  animation-duration: 0.5s;
+  font-size: 0em;
+  border: none !important;
+  margin-bottom: 0 !important;
+}
+
 .blog-post {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
 }
 
-.blog-post-content {
+.blog-post-content p {
+  line-height: 30px;
+}
 
+.blog-post-content h2 {
+  padding-top: 1rem;
 }
 
 .posts-container {

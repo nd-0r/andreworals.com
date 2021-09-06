@@ -47,6 +47,75 @@ My tasks seemed pretty simple:
 1. Implement and test functionality for notating multiple exact sections separated by other events
 2. Improve the documentation and modularity of the notation functionality
 
-## Refactoring the Notation Module
+## Refactoring the notation functionality
 
-Before implementing new functionality I completely refactored the notation module to leverage object-oriented design and 
+Before implementing new functionality I completely refactored the notation module to leverage object-oriented design and documented it. This ended up taking dozens of hours following the control flow in gdb and combing through lines of spaghetti code. What I ended up doing was taking a set of input XML files, running them through CMOD, and then writing down all of the functions related to notation that were called and in what order. After enough inputs, this made a nice call graph that showed two major flows in creating the score: adding the notes to the score while ensuring that the notes are valid in the time signature, and building the score, which quantizes the final output to the EDU grid and finally outputs the score to a text file for [lilypond](https://lilypond.org/).
+
+Since the existing implementation could handle exact sections, I abstracted the notation logic into a `Section` class. The previous implementation stored data in two main places: a two-dimensional vector holding pointers to vectors representing bars containing notes, and a one-dimensional vector containing pointers to notes of the flattened score. I ended up keeping these two data structures but scrapping the vector pointers. Then I created a cleaner interface, clearly delimiting the different stages of creating a section.
+
+```cpp
+class Section {
+public:
+  Section(TimeSignature time_signature);
+
+  Section(const Section& other);
+
+  Section& operator=(const Section& other);
+
+  ~Section();
+
+  bool InsertNote(Note* n);
+
+  void SetDurationEDUS(int edus);
+
+  float GetStartTimeGlobal() const;
+
+  int CalculateEDUsFromSecondsInTempo(float seconds);
+
+  void Build(bool notate_time_signature);
+
+  const list<Note*>& GetSectionFlat();
+
+  //// Private members omitted for brevity ////
+};
+```
+
+## Extending the functionality
+
+After making the notation logic instantiable, it was time to create multiple of these sections from `Tempo` objects in the score and stitch them together. This necessitated a section manager, called the `NotationScore` class. The notation score has an interface for adding new 
+
+```cpp
+class NotationScore {
+public:
+  NotationScore();
+
+  /**
+   * Construct a notation score with the provided title.
+  **/
+  NotationScore(const string& score_title);
+
+  /**
+   * Insert a Tempo into this score.
+  **/
+  void RegisterTempo(Tempo& tempo);
+
+  /**
+   * Insert a Note into this score.
+  **/
+  void InsertNote(Note* n);
+  
+  /**
+   * Build the text representation of this score by adding bars,
+   * rests, and adjusting durations.
+  **/
+  void Build();
+
+  /**
+   * Output the text representation of a score.
+  **/
+  friend ostream& operator<<(ostream& output_stream, 
+                             NotationScore& notation_score);
+
+  //// Private members omitted for brevity ////
+};
+```

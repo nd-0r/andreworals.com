@@ -3,7 +3,7 @@ path: "/blog/notating_stochastic_music_using_dissco"
 date: 2021-08-05T01:56:21.32Z
 title: "Notating Stochastic Music with DISSCO"
 thumbnail: "dissco_tree.png"
-draft: true
+draft: false
 blog: true
 ---
 
@@ -33,25 +33,25 @@ The EDU (Elementary Displacement Unit) is the basic unit of time in an exact "se
 
 ### Previous work
 
-The problem is then notating these discretely-positioned events. Previous work developed reliable methods of notating single musical lines with a uniform tempo and time signature. However, it only functioned on a specific case of compositions, where the top event was exact and this exactness then trickled down through the whole tree, making the tempo implicitly uniform. The previous implementation also had some serious [zombie code](https://techbeacon.com/app-dev-testing/zombie-code-when-maintainability-goes-out-window) red flags:
+The problem is then notating these discretely-positioned events. Previous work developed reliable methods of notating single musical lines with a uniform tempo and time signature. However, it only functioned on a specific case of compositions, where the top event was exact and this exactness then trickled down through the whole tree, making the tempo implicitly uniform. The previous implementation also had a few more technical issues that needed to be addressed:
 
-- all of the notation functionality was implemented as static functions in the `Note` class
+- all the notation functionality was implemented as static functions in the `Note` class
 - the temporary score data for notation was stored in the global namespace
-- there was very little documentation, most of which was misleading or outdated
-- tests? :grimacing:
+- there was very little documentation, some of which was misleading or outdated
+- no unit tests
 
 ## Goals
 
 My tasks seemed pretty simple:
 
 1. Implement and test functionality for notating multiple exact sections separated by other events
-2. Improve the documentation and modularity of the notation functionality
+2. Improve the documentation and modularity of the notation module
 
-## Refactoring the notation functionality
+## Refactoring the notation module
 
-Before implementing new functionality I completely refactored the notation module to leverage object-oriented design and documented it. This ended up taking dozens of hours following the control flow in gdb and combing through lines of spaghetti code. What I ended up doing was taking a set of input XML files, running them through CMOD, and then writing down all of the functions related to notation that were called and in what order. After enough inputs, this made a nice call graph that showed two major flows in creating the score: adding the notes to the score while ensuring that the notes are valid in the time signature, and building the score, which quantizes the final output to the EDU grid and finally outputs the score to a text file for [lilypond](https://lilypond.org/).
+Before implementing anything new I completely refactored the notation module to leverage object-oriented design and documented it. This ended up taking dozens of hours following the control flow in gdb and combing through lines of code. What I ended up doing was taking a set of input XML files, running them through CMOD, and then writing down all of the functions related to notation that were called and in what order. After enough inputs, this made a nice call graph that showed two major flows in creating the score: adding the notes to the score while ensuring that the notes are valid in the time signature, and building the score, which quantizes the final output to the EDU grid and finally outputs the score to a text file for [lilypond](https://lilypond.org/).
 
-Since the existing implementation could handle exact sections, I abstracted the notation logic into a `Section` class. The previous implementation stored data in two main places: a two-dimensional vector holding pointers to vectors representing bars containing notes, and a one-dimensional vector containing pointers to notes of the flattened score. I ended up keeping these two data structures but scrapping the vector pointers. Then I created a cleaner interface, clearly delimiting the different stages of creating a section.
+Since the existing implementation could handle exact sections, I abstracted the notation logic into a `Section` class. The previous implementation stored data in two main places: a two-dimensional vector holding pointers to vectors representing bars containing notes, and a one-dimensional vector containing pointers to notes of the flattened score. I ended up keeping these two data structures but scrapping the vector pointers. Then I created a new interface, clearly delimiting the different stages of creating a section.
 
 ```cpp
 class Section {
@@ -82,7 +82,7 @@ public:
 
 ## Extending the functionality
 
-After making the notation logic instantiable, it was time to create multiple of these sections from `Tempo` objects in the score and stitch them together. This necessitated a section manager, called the `NotationScore` class. The notation score has an interface for adding new 
+After making the notation logic instantiable, it was time to enable creating multiple of these sections from `Tempo` objects in the score and stitch them together. This necessitated a section manager, called the `NotationScore` class. The notation score has an interface for adding new sections from `Tempo` objects, inserting notes into the score, building the score, and finally outputting the score to a text file for compilation with lilypond.
 
 ```cpp
 class NotationScore {
@@ -119,3 +119,57 @@ public:
   //// Private members omitted for brevity ////
 };
 ```
+
+## Inserting new sections into the score
+
+Inside the composition module, there is no object explicitly representing a notation section. A notation section is just an exact parent and its exact descendants in the event tree. However, the Tempo objects are inherited through exact sections, so `Bottom` objects have a reference to the exact section's tempo. Then, when notes are added to the score, the bottom event simply calls `RegisterTempo` on the score object with its own tempo, representing the exact section. If the tempo doesn't already exist it's added to the score, and then the note is added to the new section.
+
+You might think this sounds ridiculous–why not just append the new sections as the events are built? Unfortunately events are not necessarily built in chronological order, and a section can be composed of any number of bottom events, so each tempo needs to be checked against the score before insertion.
+
+### Distributing `Note` objects into sections
+
+A significant issue that came up is finding the sections into which to insert notes. Since events aren't necessarily built chronologically, notes aren't either, so the score can't be built on the fly. Instead, notes carry a pointer to the "root exact ancestor" from which the exact section is derived. Tempo objects carry this same pointer, and the notes and tempos are matched when the note is inserted.
+
+## Joining notation sections
+
+So now we can create multiple sections of notation, but how do we stitch them together? It's very unlikely that they will meet perfectly, and if they don't, it's also likely that the time span between the two events is not writable in western notation. In most cases, this is resolved by inserting a bar of shortened or lengthened time (a new `Section`) relative to the rhythm of the previous section. 
+
+For example, given sections $S_1$ and $S_2$, after building $S_1$ will have used some quantity of its allotted EDU's leaving a remainder $r$, and its last bar with some quantity of EDU's $b$. If $r < 0$, then the sections overlap and an error is produced. If both $r = 0$ and $b = 0$, the sections align perfectly. In all other cases, `Section` uses an algorithm with the following pseudocode:
+
+```python
+pow_2 = 0
+min_err = INT_MAX
+time_signature_num = 0
+time_signature_den = 0
+
+while (prev_section_beat_edus % 2^pow_2 == 0):
+  
+  tmp_beat_edus = prev_section_beat_edus / 2^pow_2
+  
+  if ((r + b) % tmp_beat_edus == 0):
+    
+    // Overhanging time forms a dyadic time signature
+    time_signature_num = (r + b) / d
+    time_signature_den = prev_section_unit_note * 2^pow_2
+    min_err = 0
+    break
+  
+  else:
+
+    // Form a dyadic time signature by adding sound 
+    // or rest with the least error
+    num_beats = (r + b) / tmp_beat_edus + 1
+    err = tmp_beat_edus * num_beats - total_edus_to_use
+
+    if (err < min_err):
+
+      ts_num = num_beats
+      ts_den = prev_section_unit_note * 2^pow_2
+      min_err = err
+  
+  pow_2 = pow_2 + 1
+```
+
+## Conclusion
+
+Overall, I had a great time solving these problems this summer and learned much more about c++, writing modular code, and even writing documentation :grimacing:. It was also a great opportunity to get better at communicating my ideas and pruning things down to only the most essential points. Anyway, thanks for reading!

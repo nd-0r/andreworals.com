@@ -1,6 +1,7 @@
 @import url('../styles/prism_themes/prism.css');
 @import url('../styles/prism_themes/prism-coy.css');
 @import url('../styles/layout.module.css');
+@import url('katex/dist/katex.min.css');
 
 .content h1,
 .content h2 {

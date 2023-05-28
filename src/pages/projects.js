@@ -11,8 +11,8 @@ const projects = [
     description: `A polyphonic synthesizer using pitch-synchronous
                   overlap add to play tones composed of short samples
                   of a source, all with ADSR enveloping.`,
-    link: "https://github.com/nd-0r/GranularSynth/",
     image: "granularsynth.png",
+    link: "https://github.com/nd-0r/GranularSynth/",
     draft: false
   },
   {

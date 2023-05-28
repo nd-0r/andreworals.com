@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
 import "../styles/global.css"
 import {
   projectCardContainer,
@@ -18,11 +17,11 @@ const ProjectCard = ({title, image, link, description, external}) => {
         {
           external ? 
           <a href={link} target={"_blank"} rel={"noreferrer"}>
-            <GatsbyImage className={projectImage} image={image} alt={title}/>
+            <img className={projectImage} src={image} alt={title}/>
           </a>
           :
           <Link to={link}>
-            <GatsbyImage className={projectImage} image={image} alt={title}/>
+            <img className={projectImage} src={image} alt={title}/>
           </Link>
         }
         <div className={projectCardText}>

@@ -39,7 +39,7 @@ class BlogPost extends React.Component {
   }
 
   render() {
-    const {markdownRemark: post} = this.props.data
+    const post = this.props.pageContext.post
     return (
       <Layout pageTitle={post.frontmatter.title}>
         <div className={navHeader}>

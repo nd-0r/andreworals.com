@@ -2,7 +2,7 @@
 path: "/blog/how-to-use-gpu-passthrough-with-windows-on-esxi"
 date: 2021-08-01T17:12:33.962Z
 title: "How To Use GPU Passthrough with Windows on VMWare ESXi"
-thumbnail: "editVM.png"
+thumbnail: "/editVM.png"
 draft: true
 blog: true
 ---

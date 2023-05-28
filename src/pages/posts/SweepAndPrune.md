@@ -2,7 +2,7 @@
 path: "/blog/sweep_and_prune"
 date: 2021-08-05T01:56:21.32Z
 title: "Implementing the Sweep and Prune Algorithm"
-thumbnail: "aabbs.png"
+thumbnail: "/aabbs.png"
 draft: true
 blog: true
 ---

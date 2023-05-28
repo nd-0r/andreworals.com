@@ -9,9 +9,9 @@ const projects = [
   {
     title: "Granular Synthesizer",
     description: `A polyphonic synthesizer using pitch-synchronous
-                  overlap add to play tones composed of short samples
+                  overlap-add to play tones composed of short samples
                   of a source, all with ADSR enveloping.`,
-    image: "granularsynth.png",
+    image: "/granularsynth.png",
     link: "https://github.com/nd-0r/GranularSynth/",
     draft: false
   },
@@ -19,7 +19,7 @@ const projects = [
     title: "Distributed Logging",
     description: `A distributed log-querying system written in the Go
                   programming language. Includes full end-to-end tests.`,
-    image: "dlogging.png",
+    image: "/dlogging.png",
     link: "https://github.com/nd-0r/DistributedLogging",
     draft: false
   },
@@ -39,7 +39,7 @@ const projects = [
                   more about the JUCE plugin framework and the sweep
                   and prune algorithm. Use it to create mesmerizing 
                   soundscapes and have some fun with particle physics!`,
-    image: "synchrony.png",
+    image: "/synchrony.png",
     link: "https://github.com/nd-0r/MusicalEmergence",
     draft: false
   },
@@ -48,7 +48,7 @@ const projects = [
     description: `This is my website 
                   built with ReactJS and styled with CSS using the 
                   static site generator Gatsby, hosted on Netlify.`,
-    image: "penrose.png",
+    image: "/penrose.png",
     link: "https://github.com/nd-0r/andreworals.com",
     draft: false
   },
@@ -58,7 +58,7 @@ const projects = [
                   the iconic Towers of Hanoi puzzle. Let me know if 
                   you can move all the disks to the final peg in less
                   than 2^n moves :)`,
-    image: "toh.png",
+    image: "/toh.png",
     link: "https://github.com/nd-0r/TowersOfHanoi",
     draft: false
   },
@@ -69,7 +69,7 @@ const projects = [
                   application flexibly parses scales in json, 
                   and represents them as an interactive pie 
                   graph playable with a built-in synthesizer.`,
-    image: "scaleExplorer.png",
+    image: "/scaleExplorer.png",
     link: "https://github.com/nd-0r/ScalePieGraph",
     draft: false
   }

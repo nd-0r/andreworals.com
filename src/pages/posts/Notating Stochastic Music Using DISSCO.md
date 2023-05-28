@@ -2,7 +2,7 @@
 path: "/blog/notating_stochastic_music_using_dissco"
 date: 2021-08-05T01:56:21.32Z
 title: "Notating Stochastic Music with DISSCO"
-thumbnail: "dissco_tree.png"
+thumbnail: "/dissco_tree.png"
 draft: false
 blog: true
 ---

@@ -2,7 +2,7 @@
 path: "/blog/vmware"
 date: 2021-08-01T17:12:33.962Z
 title: "Setting Up Your Own VMWare Server"
-thumbnail: "freenas.png"
+thumbnail: "/freenas.png"
 draft: true
 blog: true
 ---

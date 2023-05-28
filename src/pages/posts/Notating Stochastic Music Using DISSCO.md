@@ -7,7 +7,7 @@ draft: false
 blog: true
 ---
 
-This past summer, I interned with NCSA at U of I and worked on a project notating stochastic (random) music. The project revolved around a piece of software called DISSCO, or the Digital Instrument for Sound Synthesis and Composition, managed and originally developed by [Dr. Sever Tipei](http://cmp.music.illinois.edu/people/tipei/index.html). I had a great time working on this project and it gave me an opportunity to solve an interesting problem, learn how to navigate a huge codebase, write documentation :grimacing: and level-up my c++ :nerd:. Here's a brief overview of what I did (which is detailed in this [paper](/AndrewOralsFinalReport.pdf) and [presentation](https://www.youtube.com/watch?v=20JLKKQ6odk)) and my thoughts.
+Summer of 2021, I interned with NCSA at UIUC and worked on a project notating stochastic (random) music. The project revolved around a piece of software called DISSCO, or the Digital Instrument for Sound Synthesis and Composition, managed and originally developed by [Dr. Sever Tipei](http://cmp.music.illinois.edu/people/tipei/index.html). I had a great time working on this project and it gave me an opportunity to solve an interesting problem, learn how to navigate a huge codebase, write documentation :grimacing: and level-up my c++ :nerd:. Here's a brief overview of what I did (which is detailed in this [paper](/AndrewOralsFinalReport.pdf) and [presentation](https://www.youtube.com/watch?v=20JLKKQ6odk)) and my thoughts.
 
 ## What is DISSCO?
 

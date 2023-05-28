@@ -36,6 +36,9 @@ const Blog = ({ data }) => {
             </div>
           )
       })}
+      <p style={{textAlign: 'center', fontWeight: 'bold', color: 'gray'}}>
+        ...more music writing in the works
+      </p>
     </Layout>
   )
 }

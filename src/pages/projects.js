@@ -7,15 +7,31 @@ import {
 
 const projects = [
   {
-    title: "Scale Explorer",
-    description: `Curious about the phrygian dominant scale? How 
-                  about the Japanese Hirajōshi scale? This c++ 
-                  application flexibly parses scales in json, 
-                  and represents them as an interactive pie 
-                  graph playable with a built-in synthesizer.`,
-    image: "scaleExplorer.png",
-    link: "https://github.com/nd-0r/ScalePieGraph",
+    title: "Granular Synthesizer",
+    description: `A polyphonic synthesizer using pitch-synchronous
+                  overlap add to play tones composed of short samples
+                  of a source, all with ADSR enveloping.`,
+    link: "https://github.com/nd-0r/GranularSynth/",
+    image: "granularsynth.png",
     draft: false
+  },
+  {
+    title: "Distributed Logging",
+    description: `A distributed log-querying system written in the Go
+                  programming language. Includes full end-to-end tests.`,
+    image: "dlogging.png",
+    link: "https://github.com/nd-0r/DistributedLogging",
+    draft: false
+  },
+  {
+    title: "Menubar Host",
+    description: `Ever wanted to run some plugins without pulling up a 
+                  full-on digital audio workstation? This is a small
+                  application that lives in the menubar for hosting 
+                  AudioUnit plugins.`,
+    image: "",
+    link: "https://github.com/nd-0r/MenubarHost",
+    draft: true
   },
   {
     title: "Musical Emergence",
@@ -45,6 +61,17 @@ const projects = [
     image: "toh.png",
     link: "https://github.com/nd-0r/TowersOfHanoi",
     draft: false
+  },
+  {
+    title: "Scale Explorer",
+    description: `Curious about the phrygian dominant scale? How 
+                  about the Japanese Hirajōshi scale? This c++ 
+                  application flexibly parses scales in json, 
+                  and represents them as an interactive pie 
+                  graph playable with a built-in synthesizer.`,
+    image: "scaleExplorer.png",
+    link: "https://github.com/nd-0r/ScalePieGraph",
+    draft: false
   }
 ]
 
@@ -56,9 +83,6 @@ const Projects = () => {
         project.draft ? null : <ProjectCard {...project} external={true}/>
       ))}
     </div>
-    <p style={{textAlign: 'center', fontWeight: 'bold'}}>
-      ...more coming soon!
-    </p>
     </Layout>
   )
 }

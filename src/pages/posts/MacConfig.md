@@ -3,7 +3,7 @@ path: "/blog/mac-config"
 date: 2021-08-01T17:12:33.962Z
 title: "How I Configure my Mac"
 thumbnail: "Desktop.png.webp"
-draft: false
+draft: true
 blog: true
 ---
 
